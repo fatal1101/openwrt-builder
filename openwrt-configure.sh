@@ -37,11 +37,11 @@ fi
 if [[ "$CRYPTO_LIB" =~ ^(Wolfssl|wolfssl)$ ]]; then
     # MAKE SURE IT IS ARMv8 or Intel AESNI, otherwise use: CONFIG_PACKAGE_libwolfssl=y
     echo -e "\n\n If this is ARMv8, you can replace libwolfssl with libwolfsslcpu-crypto \n\n"
-    FS_FULL_WPAD_PACKAGES="$FS_FULL_WPAD_PACKAGES wpad-wolfssl"
+    FS_FULL_WPAD_PACKAGES="$FS_FULL_WPAD_PACKAGES wpad-wolfssl luci-ssl"
 elif [[ "$CRYPTO_LIB" =~ ^(Openssl|openssl)$ ]]; then
-    FS_FULL_WPAD_PACKAGES="$FS_FULL_WPAD_PACKAGES wpad-openssl"
+    FS_FULL_WPAD_PACKAGES="$FS_FULL_WPAD_PACKAGES wpad-openssl luci-openssl"
 elif [[ "$CRYPTO_LIB" =~ ^(Mbedtls|mbedtls)$ ]]; then
-    FS_FULL_WPAD_PACKAGES="$FS_FULL_WPAD_PACKAGES wpad-mbedtls"
+    FS_FULL_WPAD_PACKAGES="$FS_FULL_WPAD_PACKAGES wpad-mbedtls luci-ssl"
     COMMAND="$COMMAND; apk del wpad-basic-mbedtls; apk add wpad-mbedtls"
 fi
 
